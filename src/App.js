@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { fetchPokemonWithDetails } from './slices/dataSlice';
+import { PokemonList } from './Components/List/PokemonList'
+import { Spin } from 'antd';
 import './App.css';
 
 function App() {
+  const pokemons = useSelector(
+    (state) => state.data.pokemons, shallowEqual
+  );
+
+  const loading = useSelector((state) => state.ui.loading);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPokemonWithDetails())
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      {loading ? (
+        <Spin spinning size='large' fullscreen />
+      ) : (
+        <PokemonList pokemons={pokemons} />
+      )}
+    </div >
   );
 }
 
 export default App;
+
+
