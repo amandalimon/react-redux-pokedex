@@ -1,6 +1,6 @@
 .App {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 36px;
-  margin: 48px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-family: 'Electrolize';
+    gap: 60px;
 }

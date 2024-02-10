@@ -1,33 +1,31 @@
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { fetchPokemonWithDetails } from './slices/dataSlice';
-import { PokemonList } from './Components/List/PokemonList'
+import { fetchPokemonData } from './slices/dataSlice';
+import { PokemonList } from './Components/List';
+import { PokemonDetails } from './Components/PokemonDetails';
 import { Spin } from 'antd';
 import './App.css';
 
 function App() {
-  const pokemons = useSelector(
-    (state) => state.data.pokemons, shallowEqual
-  );
-
+  const dispatch = useDispatch();
   const loading = useSelector((state) => state.ui.loading);
 
-  const dispatch = useDispatch();
-
   useEffect(() => {
-    dispatch(fetchPokemonWithDetails())
+    dispatch(fetchPokemonData())
   }, [])
 
   return (
     <div className="App">
-      {loading ? (
-        <Spin spinning size='large' fullscreen />
-      ) : (
-        <PokemonList pokemons={pokemons} />
+      {loading ? (<Spin spinning size='large' fullscreen />) : (
+        <>
+          <PokemonList />
+          <PokemonDetails />
+        </>
       )}
-    </div >
+    </div>
   );
-}
+};
 
 export default App;
 
