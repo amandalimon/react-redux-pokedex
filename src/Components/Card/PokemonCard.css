@@ -3,12 +3,13 @@
 }
 
 .PokemonCard {
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
+    justify-items: start;
     border-radius: 12px;
-    padding: 4px 12px;
+    width: 100%;
+    padding-left: 24px;
 }
 
 .PokemonCard-image {
@@ -20,7 +21,7 @@
 }
 
 .PokemonCard-image.selected {
-    border: 3px solid #FFD700; 
+    border: 3px solid #FFD700;
     transition: border-color 0.3s ease;
 }
 

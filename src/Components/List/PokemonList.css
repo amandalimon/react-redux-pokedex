@@ -1,10 +1,8 @@
-/* .PokemonList-container {} */
-
 .PokemonList {
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
-    height: 70vh;
-    padding: 8px 24px;
+    overflow-y: auto;
+    padding: 8px 0px;
     gap: 8px;
+    height: 25em;
 }

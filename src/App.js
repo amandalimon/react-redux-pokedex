@@ -3,26 +3,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchPokemonData } from './slices/dataSlice';
 import { PokemonsContainer } from './containers/PokemonsContainer';
-import { PokemonDetails } from './Components/PokemonDetails';
-import { Spin } from 'antd';
+import { PokemonDetails } from './containers/PokemonDetails';
 import './App.css';
 
 function App() {
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.ui.loading);
+  const currentRegion = useSelector((state) => state.region.currentRegion)
 
   useEffect(() => {
-    dispatch(fetchPokemonData())
-  }, [])
+    dispatch(fetchPokemonData(currentRegion))
+  }, [currentRegion])
 
   return (
     <div className="App">
-      {loading ? (<Spin spinning size='large' fullscreen />) : (
-        <>
-          <PokemonsContainer />
-          <PokemonDetails />
-        </>
-      )}
+      <PokemonsContainer />
+      <PokemonDetails />
     </div>
   );
 };

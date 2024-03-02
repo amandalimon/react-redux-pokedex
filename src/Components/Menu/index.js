@@ -1,56 +1,78 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setCurrentRegion } from "../../slices/regionSlice";
-import { fetchPokemonData } from "../../slices/dataSlice";
-import { Menu } from "antd";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentRegion } from '../../slices/regionSlice';
+import { Menu } from 'antd';
 
+const PokemonMenu = () => {
+    const dispatch = useDispatch();
 
-function PokemonMenu() {
+    const currentRegion = useSelector((state) => state.region.currentRegion)
 
-    const items = [
+    const regions = [
         {
             label: 'Kanto',
-            key: 'kanto',
+            key: 'Kanto',
+            endpoint: 'pokemon?limit=151',
         },
         {
             label: 'Johto',
-            key: 'johto',
-            disabled: true,
+            key: 'Johto',
+            endpoint: 'pokemon?limit=100&offset=151',
         },
         {
             label: 'Hoenn',
-            key: 'hoenn',
-            disabled: true,
+            key: 'Hoenn',
+            endpoint: 'pokemon?limit=135&offset=251',
         },
         {
             label: 'Sinnoh',
-            key: 'sinnoh',
-            disabled: true,
+            key: 'Sinnoh',
+            endpoint: 'pokemon?limit=107&offset=386',
         },
         {
             label: 'Unova',
-            key: 'unova',
-            disabled: true,
+            key: 'Unova',
+            endpoint: 'pokemon?limit=156&offset=493',
         },
         {
             label: 'Kalos',
-            key: 'kalos',
-            disabled: true,
+            key: 'Kalos',
+            endpoint: 'pokemon?limit=72&offset=649',
         },
         {
             label: 'Alola',
-            key: 'alola',
-            disabled: true,
+            key: 'Alola',
+            endpoint: 'pokemon?limit=88&offset=721',
         },
         {
-            label: 'Paldea',
-            key: 'paldea',
-            disabled: true,
+            label: 'Galar',
+            key: 'Galar',
+            endpoint: 'pokemon?limit=89&offset=809',
         },
     ];
-    
 
-    return <Menu items={items} mode="horizontal" />;
-}
+    const handleSwitchRegion = (endpoint) => {
+        dispatch(setCurrentRegion(endpoint));
+    };
 
-export { PokemonMenu }
+    const onClick = ({ key }) => {
+        const region = regions.find(region => region.key === key);
+        if (region) {
+            handleSwitchRegion(region.endpoint);
+        }
+    };
+
+    const menuItems = regions.map(region => ({
+        ...region,
+        onClick: () => handleSwitchRegion(region.endpoint),
+    }));
+
+    return (
+        <div>
+            <p>Select a Region:</p>
+            <Menu onClick={onClick} selectedKeys={[currentRegion]} mode="horizontal" items={menuItems} />
+        </div>
+    );
+};
+
+export { PokemonMenu };

@@ -33,7 +33,7 @@ function PokemonCard({ children, selected, onClick, pokemon }) {
     return (
         <div className="PokemonCard-container" onClick={onClick}>
             <img className={`PokemonCard-image ${selected ? 'selected' : ''}`} src={pokemon.img} alt={pokemon.name} />
-            <div className="PokemonCard" style={backgroundColor}>
+            <div className="PokemonCard" style={backgroundColor} >
                 {children}
                 <p className="pokemon-number">no. {idTransform}</p>
                 <p className="pokemon-name">{pokemon.name}</p>

@@ -10,21 +10,22 @@ const initialState = {
 
 export const fetchPokemonData = createAsyncThunk(
     'pokemon/fetchPokemonData',
-    async (_, { dispatch }) => {
-        dispatch(setLoading(true))
+    async (currentRegion, { dispatch }) => {
+        dispatch(setLoading(true));
         const pokemonData = {};
-        const pokemonCount = 251;
-
         try {
-            for (let i = 1; i <= pokemonCount; i++) {
-                const pokemon = await getPokemon(i);
-                pokemonData[i] = {
+            const pokemonList = await getPokemon(currentRegion);
+
+            for (let i = 0; i < pokemonList.length; i++) {
+                const pokemon = pokemonList[i];
+
+                pokemonData[i + 1] = {
                     id: pokemon.id,
                     name: pokemon.name,
                     img: pokemon.sprites.front_default,
                     shiny: pokemon.sprites.front_shiny,
                     types: pokemon.types.map(type => type.type.name),
-                    cries: pokemon.cries.legacy,
+                    cries: pokemon.cries.legacy || pokemon.cries.latest,
                     hp: pokemon.stats[0].base_stat,
                     att: pokemon.stats[1].base_stat,
                     def: pokemon.stats[2].base_stat,
@@ -36,9 +37,10 @@ export const fetchPokemonData = createAsyncThunk(
                     desc: pokemon.speciesData.flavor_text_entries[8].flavor_text
                 };
             }
-            dispatch(setPokemons(pokemonData))
-            dispatch(setLoading(false))
+            dispatch(setPokemons(pokemonData));
+            dispatch(setLoading(false));
         } catch (error) {
+            console.error('Error fetching Pokemon:', error);
             throw error;
         }
     }
@@ -64,7 +66,7 @@ export const dataSlice = createSlice({
         },
         setShowShiny: (state, action) => {
             state.showShiny = action.payload;
-        }
+        },
     },
 });
 
@@ -73,6 +75,7 @@ export const {
     setFavorite,
     setSelectedPokemon,
     setShowShiny,
+    setCurrentRegion
 } = dataSlice.actions;
 
 export default dataSlice.reducer;
