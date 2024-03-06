@@ -49,6 +49,11 @@ const PokemonMenu = () => {
             key: 'Galar',
             endpoint: 'pokemon?limit=89&offset=809',
         },
+        {
+            label: 'Paldea',
+            key: 'Paldea',
+            endpoint: 'pokemon?limit=127&offset=898',
+        },
     ];
 
     const handleSwitchRegion = (endpoint) => {

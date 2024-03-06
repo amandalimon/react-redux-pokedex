@@ -19,6 +19,9 @@ export const fetchPokemonData = createAsyncThunk(
             for (let i = 0; i < pokemonList.length; i++) {
                 const pokemon = pokemonList[i];
 
+                const englishFlavorTextEntry = pokemon.speciesData.flavor_text_entries.find(entry => entry.language.name === 'en');
+                const englishDescription = englishFlavorTextEntry ? englishFlavorTextEntry.flavor_text : 'No description available';
+
                 pokemonData[i + 1] = {
                     id: pokemon.id,
                     name: pokemon.name,
@@ -34,7 +37,8 @@ export const fetchPokemonData = createAsyncThunk(
                     speed: pokemon.stats[5].base_stat,
                     weight: pokemon.weight,
                     height: pokemon.height,
-                    desc: pokemon.speciesData.flavor_text_entries[8].flavor_text
+                    desc: englishDescription,
+                    entry: pokemon.speciesData.pokedex_numbers[0].entry_number
                 };
             }
             dispatch(setPokemons(pokemonData));

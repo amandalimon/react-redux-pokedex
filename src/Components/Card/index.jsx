@@ -3,7 +3,7 @@ import './PokemonCard.css'
 
 function PokemonCard({ children, selected, onClick, pokemon }) {
 
-    const idTransform = pokemon.id.toString().padStart(3, '0')
+    const entryNumber = pokemon.entry.toString().padStart(4, '0')
 
     const typeColors = {
         'bug': '#C6D16E',
@@ -35,7 +35,7 @@ function PokemonCard({ children, selected, onClick, pokemon }) {
             <img className={`PokemonCard-image ${selected ? 'selected' : ''}`} src={pokemon.img} alt={pokemon.name} />
             <div className="PokemonCard" style={backgroundColor} >
                 {children}
-                <p className="pokemon-number">no. {idTransform}</p>
+                <p className="pokemon-number">N.º {entryNumber}</p>
                 <p className="pokemon-name">{pokemon.name}</p>
                 <div>
                     {pokemon.types.map((type, index) => (

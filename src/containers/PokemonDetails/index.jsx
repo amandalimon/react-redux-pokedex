@@ -19,7 +19,7 @@ function PokemonDetails() {
     }
 
     const pokemon = pokemons[selectedPokemon]
-    const idTransform = pokemon?.id.toString().padStart(3, '0')
+    const entryNumber = pokemon?.entry.toString().padStart(4, '0')
     const play = () => { new Audio(pokemon.cries).play() }
 
     useEffect(() => {
@@ -44,7 +44,7 @@ function PokemonDetails() {
                                         <PlayButton onClick={play} />
                                         {pokemon?.name.toUpperCase()}
                                     </span>
-                                    <p># {idTransform}</p>
+                                    <p>N.º {entryNumber}</p>
                                 </div>
                                 <div className="types">
                                     {pokemon?.types.map((type, index) => (
