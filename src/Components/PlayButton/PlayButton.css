@@ -1,9 +1,5 @@
 .PlayButton{
     background-color: transparent;
-    color: white;
     border: none;
     box-shadow: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

@@ -5,7 +5,7 @@ import './PlayButton.css'
 function PlayButton({ onClick }) {
     return <Button
         className='PlayButton'
-        icon={<PlaySquareOutlined style={{color: 'black', fontSize: '18px'}}/>}
+        icon={<PlaySquareOutlined style={{color: 'white', fontSize: '18px'}}/>}
         onClick={onClick}
     />
 }

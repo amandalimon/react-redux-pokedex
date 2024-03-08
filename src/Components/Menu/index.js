@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentRegion } from '../../slices/regionSlice';
 import { Menu } from 'antd';
+import "./Menu.css"
 
 const PokemonMenu = () => {
     const dispatch = useDispatch();
@@ -74,8 +75,7 @@ const PokemonMenu = () => {
 
     return (
         <div>
-            <p>Select a Region:</p>
-            <Menu onClick={onClick} selectedKeys={[currentRegion]} mode="horizontal" items={menuItems} />
+            <Menu className="Menu" onClick={onClick} selectedKeys={[currentRegion]} mode="vertical" items={menuItems} />
         </div>
     );
 };

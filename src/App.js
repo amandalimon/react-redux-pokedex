@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { fetchPokemonData } from './slices/dataSlice';
-import { PokemonsContainer } from './containers/PokemonsContainer';
+import { PokemonData } from './containers/PokemonData';
 import { PokemonDetails } from './containers/PokemonDetails';
 import './App.css';
 
@@ -16,12 +15,10 @@ function App() {
 
   return (
     <div className="App">
-      <PokemonsContainer />
-      <PokemonDetails />
+          <PokemonData />
+          <PokemonDetails />
     </div>
   );
-};
+}
 
 export default App;
-
-
