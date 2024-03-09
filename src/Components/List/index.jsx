@@ -1,3 +1,4 @@
+import React from 'react';
 import { PokemonCard } from '../Card';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSelectedPokemon } from '../../slices/dataSlice';
