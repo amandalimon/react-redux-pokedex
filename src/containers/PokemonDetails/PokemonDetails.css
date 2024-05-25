@@ -96,6 +96,7 @@
     justify-content: center;
     width: 80%;
     gap: 4px;
+    font-size: 0.9em;
 }
 
 .stats div {
@@ -106,7 +107,6 @@
     color: whitesmoke;
     border-radius: 12px;
     padding: 2px 8px;
-    font-size: small;
 }
 
 .abilities {

@@ -5,6 +5,7 @@
     align-items: center;
     height: 95vh;
     gap: 0.5em;
+    font-family: 'Electrolize';
 }
 
 @media (min-width: 1280px) {
