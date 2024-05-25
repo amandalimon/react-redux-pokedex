@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-redux-pokedex/static/css/main.5632ece7.css",
+    "main.css": "/react-redux-pokedex/static/css/main.6ff388bd.css",
     "main.js": "/react-redux-pokedex/static/js/main.5e93832b.js",
     "index.html": "/react-redux-pokedex/index.html",
-    "main.5632ece7.css.map": "/react-redux-pokedex/static/css/main.5632ece7.css.map",
+    "main.6ff388bd.css.map": "/react-redux-pokedex/static/css/main.6ff388bd.css.map",
     "main.5e93832b.js.map": "/react-redux-pokedex/static/js/main.5e93832b.js.map"
   },
   "entrypoints": [
-    "static/css/main.5632ece7.css",
+    "static/css/main.6ff388bd.css",
     "static/js/main.5e93832b.js"
   ]
 }
