@@ -2,50 +2,78 @@
     background-color: #404040;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     border-radius: 12px;
-    margin-right: 5em;
-    height: 34em;
     display: flex;
+    align-items: center;
+    font-size: 1em;
+    width: 100%;
+    max-width: 800px;
+    height: 80vh;
 }
 
 .PokemonDetails {
-    background-color: #ADD8E6;
+    background-color: #abdcfa;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     border-radius: 12px;
-    margin: 4em;
     width: 100%;
+    height: 70vh;
+    margin: 4em;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 12px;
+    background-color: #266ab1;
     color: white;
-    background-color: #00008B;
+    width: 100%;
+    height: 30%;
     border-radius: 12px 12px 0 0;
-    height: 15%;
+}
+
+.header p {
+    margin-left: 1.5em;
+}
+
+.types {
+    display: flex;
+    margin-right: 1.5em;
 }
 
 .body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: 24px;
+    justify-items: center;
+    align-content: center;
+    background-color: #abdcfa;
+    width: 100%;
+    height: 100%;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
 }
 
 .sprites {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    align-items: center;
+    background-color: #abdcfa;
+    width: 80%;
+    gap: 0.3em;
 }
 
 .sprites img {
+    background-color: white;
     border: 4px solid #FFD700;
+    width: 89%;
 }
 
 .sprites button {
+    background-color: white;
     border: none;
+    width: 93.6%;
+    height: 2em;
 }
 
 .sizes {
@@ -53,7 +81,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 48px;
+    gap: 2em;
+    width: 80%;
 }
 
 .sizes p {
@@ -65,7 +94,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 12px;
+    width: 80%;
     gap: 4px;
 }
 
@@ -73,16 +102,40 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: cadetblue;
+    background-color: #658abf;
     color: whitesmoke;
     border-radius: 12px;
     padding: 2px 8px;
     font-size: small;
 }
 
+.abilities {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    margin-bottom: 0.5em;
+    gap: 0.5em;
+    width: 90%;
+}
+
+.title {
+    background-color: white;
+    font-weight: bold;
+    padding-inline: 1em;
+}
+
+.abilities span {
+    background-color: white;
+    padding-inline: 1em;
+    padding-block: 0.3em;
+}
+
 .footer {
     background-color: white;
-    padding: 0 12px;
-    margin: 0 24px 24px 24px;
-    height: 25%;
+    padding: 1em;
+    height: 13em;
+    margin-right: 1.5em;
+    margin-left: 1.5em;
+    margin-bottom: 1.5em;
+    width: 85%;
 }

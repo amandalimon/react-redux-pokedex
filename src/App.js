@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchPokemonData(currentRegion))
-  }, [currentRegion])
+  }, [currentRegion, dispatch])
 
   return (
     <div className="App">

@@ -28,6 +28,7 @@ export const fetchPokemonData = createAsyncThunk(
                     img: pokemon.sprites.front_default,
                     shiny: pokemon.sprites.front_shiny,
                     types: pokemon.types.map(type => type.type.name),
+                    abilities: pokemon.abilities.map(ability => ability.ability.name),
                     cries: pokemon.cries.legacy || pokemon.cries.latest,
                     hp: pokemon.stats[0].base_stat,
                     att: pokemon.stats[1].base_stat,
@@ -41,6 +42,7 @@ export const fetchPokemonData = createAsyncThunk(
                     entry: pokemon.speciesData.pokedex_numbers[0].entry_number
                 };
             }
+            console.log (pokemonData)
             dispatch(setPokemons(pokemonData));
             dispatch(setLoading(false));
         } catch (error) {

@@ -10,12 +10,10 @@ function PokemonData() {
 
     return (
         <div className="PokemonData-container">
-            <div className="PokemonData">
-                <PokemonMenu />
-                {loading ? (<Spin spinning size='large' className='spin' />) : (
-                    <PokemonList />
-                )}
-            </div>
+            <PokemonMenu />
+            {loading ? (<Spin spinning size='large' className='spin' />) : (
+                <PokemonList />
+            )}
         </div>
     )
 }

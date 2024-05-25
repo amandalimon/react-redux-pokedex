@@ -24,7 +24,7 @@ function PokemonDetails() {
 
     useEffect(() => {
         dispatch(setSelectedPokemon(1))
-    }, [currentRegion])
+    }, [currentRegion, dispatch])
 
     return (
         <div className="PokemonDetails-container">
@@ -33,7 +33,10 @@ function PokemonDetails() {
                     <>
                         <section className="header">
                             <p>N.º {entryNumber}</p>
-                            <p> <PlayButton onClick={play} />{pokemon?.name.toUpperCase()}</p>
+                            <div>
+                                <PlayButton onClick={play} />
+                                <span>{pokemon?.name.toUpperCase()}</span>
+                            </div>
                             <div className="types">
                                 {pokemon?.types.map((type, index) => (
                                     <span key={index} className={`pokemon-type ${type}`}>
@@ -46,49 +49,30 @@ function PokemonDetails() {
                             <div className="sprites">
                                 {showShiny ? (<img src={pokemon?.shiny} alt={pokemon?.name} />) : (<img src={pokemon?.img} alt={pokemon?.name} />)}
                                 <button onClick={toggleImage}>
-                                    {showShiny ? 'Show Normal' : 'Show Shiny'}
+                                    {showShiny ? 'Show Normal' : 'Show Shiny ✨'}
                                 </button>
                             </div>
                             <div className="sizes">
-                                <div>
-                                    <p>Weight</p>
-                                    <span>{(pokemon?.weight / 10).toFixed(1)} kg</span>
-                                </div>
-                                <div>
-                                    <p>Height</p>
-                                    <span>{(pokemon?.height / 10).toFixed(1)} m</span>
-                                </div>
+                                <div><p>Weight</p>{(pokemon?.weight / 10).toFixed(1)} kg</div>
+                                <div><p>Height</p>{(pokemon?.height / 10).toFixed(1)} m</div>
                             </div>
-
                             <div className="stats">
-                                <div>
-                                    <span>hp</span>
-                                    <span>{pokemon?.hp}</span>
-                                </div>
-                                <div>
-                                    <span>att</span>
-                                    <span>{pokemon?.att}</span>
-                                </div>
-                                <div>
-                                    <span>def</span>
-                                    <span>{pokemon?.def}</span>
-                                </div>
-                                <div>
-                                    <span>spAtt</span>
-                                    <span>{pokemon?.spAtt}</span>
-                                </div>
-                                <div>
-                                    <span>spDef</span>
-                                    <span>{pokemon?.spDef}</span>
-                                </div>
-                                <div>
-                                    <span>speed</span>
-                                    <span>{pokemon?.speed}</span>
-                                </div>
+                                <div><span>hp</span><span>{pokemon?.hp}</span></div>
+                                <div><span>att</span><span>{pokemon?.att}</span></div>
+                                <div><span>def</span><span>{pokemon?.def}</span></div>
+                                <div><span>spAtt</span><span>{pokemon?.spAtt}</span></div>
+                                <div><span>spDef</span><span>{pokemon?.spDef}</span></div>
+                                <div><span>speed</span><span>{pokemon?.speed}</span></div>
                             </div>
                         </section>
+
+                        <section className="abilities">
+                            <span className="title">Abilities:</span>
+                            <span>{pokemon?.abilities.join(', ')}</span>
+                        </section>
+
                         <section className="footer">
-                            <p>{pokemon?.desc}</p>
+                            {pokemon?.desc}
                         </section>
                     </>
                 )}

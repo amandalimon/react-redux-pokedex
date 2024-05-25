@@ -1,13 +1,35 @@
 .App {
     display: grid;
-    grid-template-columns: 1fr;    
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
     align-items: center;
-    height: 100vh;
-    gap: 3em;
+    height: 95vh;
+    gap: 0.5em;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1280px) {
     .App {
         grid-template-columns: repeat(2, 1fr);
+        margin-inline: 2em;
+        gap: 2em;
+    }
+}
+
+@media (max-width: 640px) {
+    .PokemonDetails-container {
+        height: 70vh;
+    }
+
+    .PokemonDetails {
+        margin: 2em;
+        height: 60vh;
+    }
+
+    .stats {
+        width: 90%;
+    }
+
+    .abilities {
+        width: 91%;
     }
 }

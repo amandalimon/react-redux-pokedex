@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentRegion } from '../../slices/regionSlice';
+import { setShowShiny } from "../../slices/dataSlice";
 import { Menu } from 'antd';
 import "./Menu.css"
 
@@ -59,6 +60,7 @@ const PokemonMenu = () => {
 
     const handleSwitchRegion = (endpoint) => {
         dispatch(setCurrentRegion(endpoint));
+        dispatch(setShowShiny(false))
     };
 
     const onClick = ({ key }) => {

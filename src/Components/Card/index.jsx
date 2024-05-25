@@ -37,7 +37,7 @@ function PokemonCard({ children, selected, onClick, pokemon }) {
                 {children}
                 <p className="pokemon-number">N.º {entryNumber}</p>
                 <p className="pokemon-name">{pokemon.name}</p>
-                <div>
+                <div className="types-container">
                     {pokemon.types.map((type, index) => (
                         <span key={index} className={`pokemon-type ${type}`}>
                             {type}

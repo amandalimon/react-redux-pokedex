@@ -1,7 +1,7 @@
 import React from 'react';
 import { PokemonCard } from '../Card';
 import { useSelector, useDispatch } from 'react-redux';
-import { setSelectedPokemon } from '../../slices/dataSlice';
+import { setSelectedPokemon, setShowShiny } from '../../slices/dataSlice';
 import './PokemonList.css'
 
 function PokemonList() {
@@ -12,6 +12,7 @@ function PokemonList() {
 
     const handlePokemonClick = (id) => {
         dispatch(setSelectedPokemon(id));
+        dispatch(setShowShiny(false))
     };
 
     return (
